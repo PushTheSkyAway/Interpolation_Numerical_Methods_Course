@@ -6,7 +6,7 @@ from cubic_spline import *
 
 
 def main():
-    NUMBER_OF_POINTS = 10
+    NUMBER_OF_POINTS = 15
     # Reading Data
 
     #Distance(m), Elevation(m)
@@ -43,15 +43,31 @@ def main():
     #plt.plot(interpolation_data["distance"], interpolation_data["elevation"],'go')
     plt.legend(["Exact function", "Interpolated function",
                 "Interpolation points"])
-    plt.title("Gathered data")
+    plt.title("Lagrange interpolation")
     plt.xlabel("Distance [m]")
     plt.ylabel("Elevation [m]")
     plt.show()
 
     ##SPLINES##
 
-    CubicSplineInterpolation.set_spline_step(2)
- 
+    CubicSplineInterpolation.set_spline_step(step)
+    CubicSplineInterpolation.calc_coeffs(np.array(
+        interpolation_data["distance"]), np.array(interpolation_data["elevation"]))
+    
+    spline_interpolation_y = []
+
+    for x in profile_data["distance"]:
+        spline_interpolation_y.append(CubicSplineInterpolation.interpolate(x))
+
+    plt.plot(profile_data["distance"], profile_data["elevation"])
+    plt.plot(profile_data["distance"], spline_interpolation_y, 'r')
+    
+    plt.legend(["Exact function", "Interpolated function",
+                "Interpolation points"])
+    plt.title("Splines interpolation")
+    plt.xlabel("Distance [m]")
+    plt.ylabel("Elevation [m]")
+    plt.show()
 
 
 if __name__ == "__main__":
