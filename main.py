@@ -51,7 +51,7 @@ def main():
     ##SPLINES##
 
     CubicSplineInterpolation.set_spline_step(2)
-    
+ 
 
 
 if __name__ == "__main__":
