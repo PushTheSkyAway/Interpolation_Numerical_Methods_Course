@@ -4,7 +4,7 @@ def lagrange_interpolation(fi_functions, datay):
     Args:
         fi_functions (func[]): list of fi functions for each x
         datay (float[]): list of interpolation y's
- 
+
     Returns:
         function: function that interpolates data
     """
@@ -20,7 +20,6 @@ def lagrange_interpolation(fi_functions, datay):
     return interpolation_func
 
 
-
 def make_fi_function(x0, data):
     """Generates fi function for LaGrange
     Args:
@@ -30,7 +29,7 @@ def make_fi_function(x0, data):
     def fi(x):
         result = 1
         for xi in data:
-            if xi!=x0:
+            if xi != x0:
                 result = result*(x-xi)/(x0-xi)
         return result
 
