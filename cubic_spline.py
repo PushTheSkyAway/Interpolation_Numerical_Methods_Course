@@ -74,6 +74,12 @@ class CubicSplineInterpolation():
 
     @staticmethod
     def calc_coeffs(knots_x, knots_y):
+        """
+        Calculate coefficients for Cubic Spline Interpolation
+        Args:
+            knots_x(float[]): Known arguments of function to interpolate
+            knots_y(float[]): Known values of function to interpolate
+        """
         #Mx = b
         M, b = CubicSplineInterpolation.__gen_system_of_equations(
             knots_x, knots_y)
@@ -85,6 +91,11 @@ class CubicSplineInterpolation():
 
     @staticmethod
     def interpolate(x):
+        """
+        Interpolates function in x using previously given coefficients
+        Args:
+            x(float): Argument of function to interpolate 
+        """
         _x = CubicSplineInterpolation.__x
         _y = CubicSplineInterpolation.__y
         _coeffs = CubicSplineInterpolation.__coeffs
