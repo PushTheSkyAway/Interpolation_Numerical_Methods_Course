@@ -43,7 +43,7 @@ def main():
     #plt.plot(interpolation_data["distance"], interpolation_data["elevation"],'go')
     plt.legend(["Exact function", "Interpolated function",
                 "Interpolation points"])
-    plt.title("Lagrange interpolation, Nodes = " + NUMBER_OF_POINTS)
+    plt.title("Lagrange interpolation, Nodes = " + str(NUMBER_OF_POINTS))
     plt.xlabel("Distance [m]")
     plt.ylabel("Elevation [m]")
     plt.show()
@@ -63,7 +63,7 @@ def main():
 
     plt.legend(["Exact function", "Interpolated function",
                 "Interpolation points"])
-    plt.title("Cubic spline interpolation, Nodes = " + NUMBER_OF_POINTS)
+    plt.title("Cubic spline interpolation, Nodes = " + str(NUMBER_OF_POINTS))
     plt.xlabel("Distance [m]")
     plt.ylabel("Elevation [m]")
     plt.show()
