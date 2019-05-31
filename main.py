@@ -63,6 +63,7 @@ def main(argv):
         interpolation_y.append(itrpl_func(x))
 
     # plotting
+    f = plt.figure(1)
     plt.plot(profile_data["distance"], profile_data["elevation"])
     plt.plot(profile_data["distance"], interpolation_y, 'r')
     plt.legend(["Exact function", "Interpolated function",
@@ -71,7 +72,7 @@ def main(argv):
               str(NUMBER_OF_POINTS) + ", Location = " + str(filename[:-4]))
     plt.xlabel("Distance [m]")
     plt.ylabel("Elevation [m]")
-    plt.show()
+    f.show()
 
     #####################################################################################
 
@@ -86,6 +87,7 @@ def main(argv):
         spline_interpolation_y.append(CubicSplineInterpolation.interpolate(x))
 
     # plotting
+    g = plt.figure(2)
     plt.plot(profile_data["distance"], profile_data["elevation"])
     plt.plot(profile_data["distance"], spline_interpolation_y, 'r')
     plt.legend(["Exact function", "Interpolated function",
@@ -94,9 +96,11 @@ def main(argv):
               str(NUMBER_OF_POINTS)+", Location = " + str(filename[:-4]))
     plt.xlabel("Distance [m]")
     plt.ylabel("Elevation [m]")
-    plt.show()
+    g.show()
 
     ######################################################################################
+
+    input()
 
 
 if __name__ == "__main__":
